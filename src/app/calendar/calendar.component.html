@@ -1,0 +1,64 @@
+<div
+  id="calendar"
+  class="mat-body"
+  fxLayout="column"
+  style="height: 100%"
+  fxLayoutAlign="start stretch"
+  fxLayoutGap="16px"
+>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="header-center" id="calendar-title">
+      {{ calendarTitleDisplay }}
+    </div>
+  </div>
+
+  <div class="calendate-table-div" fxFlex>
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th *ngFor="let calendarTitleDay of calendarTitleDays">
+            {{ calendarTitleDay }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let calendarDays of calendar | chunkCalendarDays: 7;
+            let i = index
+          "
+        >
+          <td
+            class="calendar-day"
+            [ngClass]="{ today: calendarDay.isToday }"
+            *ngFor="let calendarDay of calendarDays; let j = index"
+          >
+            <div
+              class="calendar-day-header"
+              *ngIf="calendarDay.isCurrentMonthDate"
+            >
+              {{ calendarDay.date.format('D') }}
+            </div>
+
+            <!-- <div class="calendar-day-frame">
+              <div
+                class="calendar-day-events"
+                *ngIf="calendarDay.isCurrentMonthDate"
+              >
+                <div
+                  class="calendar-day-event"
+                  *ngFor="
+                    let event of calendarEvents
+                      | filterCalendarEvents: calendarDay.date
+                  "
+                >
+                  {{ event.title }}
+                </div>
+              </div>
+            </div> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
