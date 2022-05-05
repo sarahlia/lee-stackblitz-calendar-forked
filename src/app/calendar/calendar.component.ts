@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import Moment from 'moment';
 import { CalendarDay } from './calendar-day-model';
+import { CalendarEvent } from './calendar-event-model';
 import { ChunkCalendarDaysPipe } from './pipes/chunk-calendar-days.pipe';
 
 @Component({
@@ -11,19 +12,25 @@ import { ChunkCalendarDaysPipe } from './pipes/chunk-calendar-days.pipe';
   providers: [ChunkCalendarDaysPipe],
 })
 export class CalendarComponent implements OnInit {
-  @Input() calendarTitleDisplay: string = 'MAY';
+  @Input() calendarTitleDisplay: string = 'May';
   @Input() calendarTitleDays: string[] = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thur',
-    'Fri',
-    'Sat',
+    'SUN',
+    'MON',
+    'TUE',
+    'WEB',
+    'THUR',
+    'FRI',
+    'SAT',
   ];
   @Input() calendarStart: string = '05/01/2022';
   @Input() calendarCurrentMonthStart: string = '05/01/2022';
   @Input() calendarNextMonthStart: string = '06/01/2022';
+  @Input() calendarEvents: CalendarEvent[] = [
+    { id: '1', title: 'Circus', start: '05/03/2022', end: '05/03/2022' },
+    { id: '2', title: 'Breakfast', start: '05/10/2022', end: '05/10/2022' },
+    { id: '3', title: 'Lunch', start: '05/10/2022', end: '05/10/2022' },
+    { id: '3', title: 'Dinner', start: '05/10/2022', end: '05/10/2022' },
+  ];
 
   calendar: CalendarDay[] = [];
 

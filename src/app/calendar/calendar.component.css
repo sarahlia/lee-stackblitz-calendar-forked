@@ -34,7 +34,8 @@
   vertical-align: top;
 }
 
-.calendar-table td, th {
+.calendar-table td,
+th {
   max-width: 14.2vw;
   word-wrap: break-word;
   border: 1px solid #dee2e6;

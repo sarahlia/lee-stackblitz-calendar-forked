@@ -22,6 +22,7 @@ import { ReversePipe } from './reverse.pipe';
 import { ReverseComponent } from './reverse.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ChunkCalendarDaysPipe } from './calendar/pipes/chunk-calendar-days.pipe';
+import { FilterCalendarEventsPipe } from './calendar/pipes/filter-calendar-events.pipe';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -43,6 +44,7 @@ import { ChunkCalendarDaysPipe } from './calendar/pipes/chunk-calendar-days.pipe
     ReversePipe,
     ReverseComponent,
     ChunkCalendarDaysPipe,
+    FilterCalendarEventsPipe,
     CalendarComponent,
   ],
   bootstrap: [AppComponent],
